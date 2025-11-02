@@ -4,5 +4,15 @@
  * @returns {number}
  */
 module.exports.digitsSum = function digitsSum(n) {
-  throw new Error('Not implemented'); // remove this line
+  n = Math.abs(n);
+const nToArr = String(n).split('');
+const backToNumber = nToArr.map(Number);
+
+  let i = 0;
+  result = 0;
+  while (i < backToNumber.length) {
+    result = result + backToNumber[i];
+    i = i + 1;
+  }
+  return result
 };
