@@ -7,5 +7,15 @@
  * @returns {number}
  */
 module.exports.getDistance = function getDistance(firstPoint, secondPoint) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  
+const x1 = firstPoint.X;
+const y1 = firstPoint.Y;
+
+const x2 = secondPoint.X;
+const y2 = secondPoint.Y;
+
+const result = Number(Math.hypot(x1 - x2, y1 - y2).toFixed(2));
+
+return result;
+
 };
