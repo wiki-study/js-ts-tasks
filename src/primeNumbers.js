@@ -4,5 +4,26 @@
  * @returns {function}
  */
 module.exports.primeNumbers = function primeNumbers(highestNumber) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return function (from, to) {
+    const result = [];
+
+    if (from < 2) from = 2;
+    if (to > highestNumber) to = highestNumber;
+
+    for (let i = from; i <= to; i++) {
+      let isPrime = true;
+
+        for (let k = 2; k < i; k++) {
+          if (i % k === 0) {
+            isPrime = false;
+            break;
+          }
+        }
+      
+      if (isPrime) {
+        result.push(i);
+      }
+    }
+return result;
+  };
 };
