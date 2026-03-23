@@ -6,5 +6,15 @@
  *@response {object}
  */
 module.exports.mockApi = function mockApi(response, delay) {
-  throw new Error('Not implemented'); // remove me and write your code
+  return function (type) {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        if (type === 'reject') {
+          reject(response);
+        } else {
+          resolve(response);
+        }
+      }, delay);
+    });
+  };
 };

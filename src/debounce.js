@@ -6,5 +6,18 @@
  * @return {function}
  */
 module.exports.debounce = function debounce(fn, delay) {
-  throw new Error('Not implemented'); // remove me and write your code
+  let isBlocked = false;
+
+  return function () {
+    if (isBlocked) {
+      return;
+    }
+
+    isBlocked = true;
+    fn.apply(this, arguments);
+
+    setTimeout(function () {
+      isBlocked = false;
+    }, delay);
+  };
 };
